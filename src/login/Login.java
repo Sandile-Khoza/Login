@@ -1,12 +1,17 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+* Reference:
+*OpenAI (2025) ChatGpt [Online]. Available at: https://chat.openai.com/ (Accessed : 16 April 2025)
+*This file contains a code that is written with assistance from ChatGPT
+*AI was used for understanding java syntax
+*Logic structuring
+*/
+
 package login;
 
 
 import java.util.Scanner;
 public class Login {
+    
     
 //Method to ensure username contains underscore and less or equal to 5
 public static boolean checkUserName(String username){
@@ -24,6 +29,9 @@ if (password.length() <8) {
     return false;
 }
 
+
+//logic below was written with help from ChatGpt (OpenAI, 2025)
+//OpenAI (2025) ChatGPT [Online]. Available at: https://chat.openai.com/ (Accessed : 16 April 2025)
 for (char c : password.toCharArray()) {
     if (Character.isUpperCase(c)){
         hasUppercase = true;
@@ -43,17 +51,9 @@ public static boolean checkPhoneNumber(String phoneNumber) {
 }   
 // a Method that registers user and returns a message
 public static String registerUser(String firstName, String lastName, String password, String username, String phoneNumber) {
-    
-boolean validUsername = checkUserName(username);
-boolean validPassword = checkPasswordComplexity (password);
-boolean validPhone = checkPhoneNumber(phoneNumber);
+      return "You have been successfully registered.";
+}
 
-if (validUsername && validPassword && validPhone) {
-    return "Welcome " + firstName + " " + lastName + ", It is great to see you again.";
-  } else {
-    return "Username and password incorrect, please try again " ;
-}
-}
 
 // method to enable the user to login
 public static boolean loginUser(String registeredUsername, String registeredPassword) {
@@ -75,14 +75,14 @@ return success;
 }
 
 //method that returns login status
-public static String returnLoginStatus(boolean isLoggedIn) {
+public static String returnLoginStatus(boolean isLoggedIn, String firstName, String lastName) {
     if (isLoggedIn) {
-        System.out.println(true);
-        return "login was successful";
+        
+        return "Welcome " + firstName + " " + lastName + ", It is great to see you again.";
         
     } else {
         System.out.println(true);
-        return "login failed.";
+        return "Username and password incorrect, please try again";
     }
 }
 
@@ -146,20 +146,20 @@ public static String returnLoginStatus(boolean isLoggedIn) {
    
     }  
     //registration message
-   String result = registerUser(firstName, lastName, username, password, phoneNumber);
-    System.out.println(result);
+   String registrationMessage = registerUser(firstName, lastName, username, password, phoneNumber);
+    System.out.println(registrationMessage);
     
+    if (registrationMessage.equals("You have been successfully registered"));
     boolean isLoggedIn = loginUser(username, password);
-    String loginStatus = returnLoginStatus(isLoggedIn);
+    String loginStatus = returnLoginStatus(isLoggedIn, firstName, lastName);
     System.out.println(loginStatus);
     
-              
+        
     
        scanner.close();
         
        
     }
-    
     }
-
+    
 
